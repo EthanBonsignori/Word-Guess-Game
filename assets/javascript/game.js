@@ -13,29 +13,23 @@ var hangman = {
       randomWord: function() {  // Picks a random word in the countries array and displays it to console
       let randomNumber = Math.floor(Math.random() * this.countries.length);
       this.chosenWord = this.countries[randomNumber];
-      },
-        
-      generateUnderscores: function() {
-        for(let i = 0; i < this.chosenWord.length; i++) {
+        for(let i = 0; i < this.chosenWord.length; i++) { // Adds one underscore per letter in the randomly selected word from the countries array
           this.underscores.push('_');
         }
       },
-      
-      debug: function() {
+
+      debug: function() { // Outputs necessary variables to console for debugging
         console.log("Wins: " + this.wins);
         console.log("Losses: " + this.losses);
         console.log("Guesses remaining " + this.guesses);
-        console.log("==================")
+        console.log("==============================")
         console.log("Hidden word: " + this.chosenWord);
         console.log("Underscores: " + this.underscores);
         console.log("Letters tried: " + this.usedLetters);
       }
-      
-
     };
 
 
 hangman.randomWord();
-hangman.generateUnderscores();
 hangman.debug();
 
