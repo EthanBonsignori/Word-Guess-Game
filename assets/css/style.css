@@ -1,0 +1,57 @@
+/*-- Custom Fonts --*/
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Major+Mono+Display');
+
+body {
+  background: #F67C1F;
+  text-align: center;
+}
+
+.container {
+  height: 100%;
+  margin-top: 100px;
+}
+
+.title {
+   color: white;
+   font-family: 'Alfa Slab One', cursive;
+   font-size: 100px;
+   background: url(../images/flags/us.png) no-repeat;
+   background-size: 100%;
+   background-position: center;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+#underscores {
+  font-family: 'Major Mono Display', monospace;
+}
+
+#letterList {
+  margin: 15px auto;
+  padding: 0;
+  align-items: center;
+}
+
+#letterList::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+#alphabet li { 
+  font-family: 'Major Mono Display', monospace;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  margin: 10px 35px 0 10px;
+  width:35px;
+  height:30px;
+  background: #116973;
+  border: solid 2px #116973;
+  border-radius: 5px;
+}
+
+.usedLetter {
+  color: rgb(255, 255, 255);
+  background: rgba(119, 119, 119, 0.5) !important;
+}
