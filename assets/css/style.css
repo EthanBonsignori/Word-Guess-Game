@@ -85,13 +85,13 @@ body {
   border: dashed 3px #183945;
 }
 
-#letterList {
+#letter-list {
   margin: 10px auto;
   padding: 0;
   align-items: center;
 }
 
-#letterList::after {
+#letter-list::after {
   content: "";
   display: table;
   clear: both;

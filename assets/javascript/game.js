@@ -22,10 +22,19 @@ const hangman = {
   lostText: document.getElementById('lost'),
   tryAgainText: document.getElementById('try-again'),
 
+  // Reset button
+  reset: document.getElementById('reset').onclick = function() {
+    hangman.usedLetters.length = 0;  // Reset the used letters array
+    hangman.underscores.length=  0;  // Reset the chosen word
+    hangman.guesses = 10;            // Reset guesses
+    letters.parentNode.removeChild(letters); // Removes the letters display
+    hangman.randomWord();            // Pick a new word
+    hangman.createAlphabet();        // Resets the used letters display
+  },
 
-   // Creates list of letters to be chosen from
+   // Creates display of letters to inform the user what letters they have used
    createAlphabet: function () {
-    myButtons = document.getElementById('letterList');
+    myButtons = document.getElementById('letter-list');
     letters = document.createElement('ul');
 
     for (let i = 0; i < hangman.alphabet.length; i++) {
@@ -38,6 +47,7 @@ const hangman = {
     }
   },
 
+  // Updates text on screen with necessary variables and strings
   update: function() {
     hangman.underscoreText.textContent = hangman.underscores.join('');
     hangman.guessesText.textContent = "You have " + hangman.guesses + " guesses";
@@ -119,6 +129,7 @@ const hangman = {
       document.querySelector("#" + letter).className = "usedLetter";
     }
   },
+
 
   debug: function() { // Outputs necessary variables to console for debugging
     console.log("========= Start Debug =========")
