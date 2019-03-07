@@ -86,6 +86,7 @@ const hangman = {
               indeces.push(i);                                        // Adds the index of the playerGuess found in the random word to indeces array
                 for (const index of indeces) {                        // Loop that iterates over underscore array
                 hangman.underscores[index] = this.playerGuess;        // Replace underscore array at every index playerGuess matches with chosenWord
+                hangman.tryAgainText.className = "hidden";            // Hides the text that alerts the player the guess has already been used if it is visible
                 hangman.onGuess();                                    // Function that finds letter pressed in the DOM and changes its class
                 hangman.update();                                     // Function that pushes necessary variable changes to DOM 
                 }
@@ -94,12 +95,13 @@ const hangman = {
         // Check if letter is NOT in the chosenWord and NOT in the usedLetters array
         } else if (hangman.chosenWord.indexOf(this.playerGuess) === -1 && hangman.usedLetters.indexOf(this.playerGuess) === -1) {
             hangman.usedLetters.push(this.playerGuess); 
-            hangman.guesses--; 
+            hangman.guesses--;
+            hangman.tryAgainText.className = "hidden"; 
             hangman.onGuess();
             hangman.update();
         // If playerGuess is already in the usedLetters array
         } else {
-            hangman.tryAgainText.className = "visible";
+            hangman.tryAgainText.className = "visible"; // Shows a string that alerts the player the letter has been used already
             hangman.onGuess();
             hangman.update();
         }

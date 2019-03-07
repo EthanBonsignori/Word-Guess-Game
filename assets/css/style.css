@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fondamento|Major+Mono+Display');
 
 html {
-  border: 30px solid #D82B03;
+  border: 30px solid #A95800;
   height: 100%;
-  box-shadow: inset 0 0 50px 5px #D82B03;
+  box-shadow: inset 0 0 50px 5px #A95800;
 }
 
 body {
-  background: #F67C1F;
+  background: #F68E1F;
   text-align: center;
   color: #183945;
 }
@@ -31,12 +31,15 @@ body {
 }
 
 .subtitle {
+  position: relative;
+  top: -70px;
   font-family: 'Fondamento', cursive;
-  font-size: 120px;
-  color: #F67C1F;
-  -ms-transform: rotate(4deg); /* IE 9 */
-  -webkit-transform: rotate(4deg); /* Safari */
-  transform: rotate(4deg);
+  font-size: 80px;
+  color: #1FBDF6;
+  margin: 0;
+  -ms-transform: rotate(-4deg); /* IE 9 */
+  -webkit-transform: rotate(-4deg); /* Safari */
+  transform: rotate(-4deg);
 }
   
 
@@ -53,7 +56,7 @@ body {
 }
 
 #letterList {
-  margin: 15px auto;
+  margin: 10px auto;
   padding: 0;
   align-items: center;
 }
@@ -78,20 +81,23 @@ body {
 }
 
 .usedLetter {
-  color: rgb(0, 0, 0) !important;
-  background: rgb(119, 119, 119) !important;
-  border: solid 2px rgb(87, 87, 87) !important;
-  box-shadow: inset -10px -5px 15px rgb(75, 75, 75) !important;
+  background: rgba(119, 119, 119, 0.3) !important;
+  border: solid 2px rgb(87, 87, 87, 0.3) !important;
+  box-shadow: inset 10px 5px 15px rgb(75, 75, 75, 0.3) !important;
 }
 
 #try-again {
-  margin-top: 1rem;
-  color: red;
+  font-family: 'Major Mono Display', monospace;
+  display: inline;
+  color: white;
+  border: 15px solid #D82B03;
+  border-radius: 40px;
+  background: #D82B03;
 }
 
 .visible {
   visibility: visible;
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .hidden {
