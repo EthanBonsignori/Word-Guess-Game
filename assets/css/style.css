@@ -53,18 +53,22 @@ body {
   transform: rotate(-4deg);
 }
 
-#won {
+
+.stats {
   position: absolute;
-  display: inline;
-  bottom: 0;
-  left: 20px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #1FBDF6;
+  width: 200px;
+  border-top: 2px solid #183945;
+  border-right: 2px solid #183945;
+  border-bottom-left-radius: 25px;
+}
+#won {
+
 }
 
 #lost {
-  position: absolute;
-  display: inline;
-  bottom: 0;
-  right: 20px;
 }
 
 #underscores {

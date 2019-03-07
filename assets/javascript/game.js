@@ -55,8 +55,10 @@ const hangman = {
     hangman.lostText.textContent = "Lost: " + hangman.losses;
     if (hangman.underscores.indexOf('_') === -1) {
       hangman.guessesText.textContent = "You win!"
+      hangman.wins++;
     } else if (hangman.guesses === 0) {
       hangman.guessesText.textContent = "You lose, try again!"
+      hangman.losses++;
     }
   },
 
