@@ -18,16 +18,19 @@ body {
   margin-top: 100px;
 }
 
+.map-border {
+  position: relative;
+  height: 400px;
+  background: url(../images/map.jpg) no-repeat;
+  background-position: center;
+  border-radius: 25px;
+}
+
 .title {
   font-family: 'Alfa Slab One', cursive;
   font-size: 100px;
   color: #224f5f;
-}
-
-.map-border {
-  background: url(../images/map.jpg) no-repeat;
-  background-position: center;
-  border-radius: 25px;
+  padding-top: 120px;
 }
 
 .subtitle {
@@ -37,16 +40,43 @@ body {
   font-size: 80px;
   color: #1FBDF6;
   margin: 0;
-  -ms-transform: rotate(-4deg); /* IE 9 */
-  -webkit-transform: rotate(-4deg); /* Safari */
+
+  text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+  
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
   transform: rotate(-4deg);
 }
-  
+
+#won {
+  position: absolute;
+  display: inline;
+  bottom: 0;
+  left: 20px;
+}
+
+#lost {
+  position: absolute;
+  display: inline;
+  bottom: 0;
+  right: 20px;
+}
 
 #underscores {
   font-family: 'Major Mono Display', monospace;
-  color: #ccc;
+  color: #1FBDF6;
+  font-size: 300%;
   font-weight: bold;
+  text-shadow:
+  -1px -1px 0 #000,  
+   1px -1px 0 #000,
+   -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .letters {
@@ -71,6 +101,7 @@ body {
   font-family: 'Major Mono Display', monospace;
   display: inline-block;
   color: #ccc;
+  font-weight: bold;
   margin: 10px 35px 0 10px;
   width:35px;
   height:30px;
@@ -81,6 +112,7 @@ body {
 }
 
 .usedLetter {
+  color: rgb(190, 190, 190) !important;
   background: rgba(119, 119, 119, 0.3) !important;
   border: solid 2px rgb(87, 87, 87, 0.3) !important;
   box-shadow: inset 10px 5px 15px rgb(75, 75, 75, 0.3) !important;
@@ -115,3 +147,25 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/*-- Media Queries --*/
+@media all and (max-width: 768px) {
+  .title {
+    font-size: 75px;
+  }
+  .subtitle {
+    font-size: 60px;
+    top: -50px;
+  }
+ }
+
+@media all and (max-width: 564px) {
+  .title {
+    font-size: 50px;
+  }
+  .subtitle {
+    font-size: 40px;
+    top: -30px;
+  }
+}
+
