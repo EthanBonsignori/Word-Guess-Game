@@ -5,7 +5,7 @@ const hangman = {
   guesses: 10,  // User's guesses remaining
   
   // List of words to choose from for the user to guess
-  countries: ["united states of america", "japan", "canada", "new zealand", "russia", "sweden"],
+  countries: ["United States of America", "Japan", "Canada", "New Zealand", "Russia", "Sweden"],
 
   alphabet:  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
               "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
@@ -30,6 +30,7 @@ const hangman = {
     letters.parentNode.removeChild(letters); // Removes the letters display
     hangman.randomWord();            // Pick a new word
     hangman.createAlphabet();        // Resets the used letters display
+    hangman.tryAgainText.className = "hidden";
   },
 
    // Creates display of letters to inform the user what letters they have used
@@ -42,6 +43,8 @@ const hangman = {
       list = document.createElement('li');
       list.id = hangman.alphabet[i];
       list.innerHTML = hangman.alphabet[i];
+      // Add click event to each letter that guesses it's corresponding letter
+      list.onclick = function() { hangman.checkGuess({key: hangman.alphabet[i]}) }
       myButtons.appendChild(letters);
       letters.appendChild(list);
     }
@@ -66,7 +69,7 @@ const hangman = {
   // Picks a random word in the countries array and displays it to console
   randomWord: function() {  
     let randomNumber = Math.floor(Math.random() * this.countries.length);
-    this.chosenWord = this.countries[randomNumber];
+    this.chosenWord = this.countries[randomNumber].toLowerCase();
       // Adds one underscore per letter in the randomly selected word from the countries array
       for (let i = 0; i < this.chosenWord.length; i++) {
         if (this.chosenWord[i] === ' ') {

@@ -64,12 +64,6 @@ body {
   border-right: 2px solid #183945;
   border-bottom-left-radius: 25px;
 }
-#won {
-
-}
-
-#lost {
-}
 
 #underscores {
   font-family: 'Major Mono Display', monospace;
@@ -145,11 +139,26 @@ body {
   transition: visibility 0s 1.5s, opacity 1.5s linear;
 }
 
-.flag {
+#flagpole {
+  position: fixed;
+  bottom: 30px;
+  left: 48.8%;
+  height: 320px;
+  width: 30px;
+  background-image: linear-gradient(to right, #2f4353, #d2ccc4, #2f4353);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#flag {
+  position: fixed;
+  bottom: 200px;
+  left: 50%;
+  height: 140px;
+  width: 220px;
+  border: 1px solid black;
   background-image: url(../images/flags/us.png);
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /*-- Media Queries --*/
