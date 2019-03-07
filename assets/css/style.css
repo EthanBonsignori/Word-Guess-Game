@@ -1,9 +1,16 @@
 /*-- Custom Fonts --*/
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Major+Mono+Display');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Fondamento|Major+Mono+Display');
+
+html {
+  border: 30px solid #D82B03;
+  height: 100%;
+  box-shadow: inset 0 0 50px 5px #D82B03;
+}
 
 body {
   background: #F67C1F;
   text-align: center;
+  color: #183945;
 }
 
 .container {
@@ -12,18 +19,37 @@ body {
 }
 
 .title {
-   color: white;
-   font-family: 'Alfa Slab One', cursive;
-   font-size: 100px;
-   background: url(../images/flags/us.png) no-repeat;
-   background-size: 100%;
-   background-position: center;
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 100px;
+  color: #224f5f;
 }
+
+.map-border {
+  background: url(../images/map.jpg) no-repeat;
+  background-position: center;
+  border-radius: 25px;
+}
+
+.subtitle {
+  font-family: 'Fondamento', cursive;
+  font-size: 120px;
+  color: #F67C1F;
+  -ms-transform: rotate(4deg); /* IE 9 */
+  -webkit-transform: rotate(4deg); /* Safari */
+  transform: rotate(4deg);
+}
+  
 
 #underscores {
   font-family: 'Major Mono Display', monospace;
+  color: #ccc;
+  font-weight: bold;
+}
+
+.letters {
+  font-family: 'Major Mono Display', monospace;
+  color: #183945;
+  border: dashed 3px #183945;
 }
 
 #letterList {
@@ -38,20 +64,48 @@ body {
   clear: both;
 }
 
-
 #alphabet li { 
   font-family: 'Major Mono Display', monospace;
   display: inline-block;
-  color: rgb(255, 255, 255);
+  color: #ccc;
   margin: 10px 35px 0 10px;
   width:35px;
   height:30px;
   background: #116973;
   border: solid 2px #116973;
   border-radius: 5px;
+  box-shadow: inset -10px -5px 15px #183945;
 }
 
 .usedLetter {
-  color: rgb(255, 255, 255);
-  background: rgba(119, 119, 119, 0.5) !important;
+  color: rgb(0, 0, 0) !important;
+  background: rgb(119, 119, 119) !important;
+  border: solid 2px rgb(87, 87, 87) !important;
+  box-shadow: inset -10px -5px 15px rgb(75, 75, 75) !important;
+}
+
+#try-again {
+  margin-top: 1rem;
+  color: red;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hidden {
+   visibility: hidden;
+   opacity: 0;
+  -webkit-transition: visibility 0s 1.5s, opacity 1.5s linear;
+  -moz-transition: visibility 0s 1.5s, opacity 1.5s linear;
+  -o-transition: visibility 0s 1.5s, opacity 1.5s linear;
+  transition: visibility 0s 1.5s, opacity 1.5s linear;
+}
+
+.flag {
+  background-image: url(../images/flags/us.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

@@ -18,7 +18,9 @@ const hangman = {
 
   underscoreText: document.getElementById('underscores'),
   guessesText: document.getElementById('guesses'),
-
+  wonText: document.getElementById('won'),
+  lostText: document.getElementById('lost'),
+  tryAgainText: document.getElementById('try-again'),
 
 
    // Creates list of letters to be chosen from
@@ -39,12 +41,15 @@ const hangman = {
   update: function() {
     hangman.underscoreText.textContent = hangman.underscores.join('');
     hangman.guessesText.textContent = "You have " + hangman.guesses + " guesses";
+    hangman.wonText.textContent = "Won: " + hangman.wins;
+    hangman.lostText.textContent = "Lost: " + hangman.losses;
     if (hangman.underscores.indexOf('_') === -1) {
       hangman.guessesText.textContent = "You win!"
     } else if (hangman.guesses === 0) {
       hangman.guessesText.textContent = "You lose, try again!"
     }
   },
+
 
   // Picks a random word in the countries array and displays it to console
   randomWord: function() {  
@@ -66,8 +71,9 @@ const hangman = {
   // Checks if playerGuess is a letter and not a sybmol 
    checkGuess: function(event) {
     this.playerGuess = event.key.toLowerCase(); // Converts playerGuess to lower case for continuity
-    if (hangman.guesses > 0) {  // Stops if guess reach 0
-      if (!hangman.isLetter(this.playerGuess)) {
+    if (hangman.underscores.indexOf('_') === -1 || hangman.guesses === 0) { // Stop game if already won or lost
+      return;
+    } else if (!hangman.isLetter(this.playerGuess)) {
         console.log("Not a letter");
         return; // Stops here if playerGuess is not a letter
       } 
@@ -80,8 +86,8 @@ const hangman = {
               indeces.push(i);                                        // Adds the index of the playerGuess found in the random word to indeces array
                 for (const index of indeces) {                        // Loop that iterates over underscore array
                 hangman.underscores[index] = this.playerGuess;        // Replace underscore array at every index playerGuess matches with chosenWord
-                hangman.onGuess();
-                hangman.update();
+                hangman.onGuess();                                    // Function that finds letter pressed in the DOM and changes its class
+                hangman.update();                                     // Function that pushes necessary variable changes to DOM 
                 }
             }    
           } 
@@ -93,13 +99,11 @@ const hangman = {
             hangman.update();
         // If playerGuess is already in the usedLetters array
         } else {
-            console.log("Already guessed that letter!");
-            alert("Already guessed that letter!");
+            hangman.tryAgainText.className = "visible";
             hangman.onGuess();
             hangman.update();
         }
       hangman.debug(); // Display info to console once per playerGuess
-    }
   },
 
   
