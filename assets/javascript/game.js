@@ -2,7 +2,7 @@
 const hangman = {
   wins: 0,      // Number of times the user successfully guessed the word
   losses: 0,    // Number of times the user ran out of guesses
-  guesses: 10,  // User's guesses remaining
+  guesses: 8,  // User's guesses remaining
   
   // List of words to choose from for the user to guess
   countries: ["United States of America", "Japan", "Canada", "New Zealand", "Russia", "Sweden"],
@@ -26,10 +26,15 @@ const hangman = {
   reset: document.getElementById('reset').onclick = function() {
     hangman.usedLetters.length = 0;  // Reset the used letters array
     hangman.underscores.length=  0;  // Reset the chosen word
-    hangman.guesses = 10;            // Reset guesses
+    hangman.guesses = 8;            // Reset guesses
     letters.parentNode.removeChild(letters); // Removes the letters display
     hangman.randomWord();            // Pick a new word
     hangman.createAlphabet();        // Resets the used letters display
+    hangman.tryAgainText.className = "hidden";
+  },
+
+  // Allows users to click alert to hide it instead of waiting for it to fade on next guess
+  hideTryAgainText: document.getElementById('try-again').onclick = function() {
     hangman.tryAgainText.className = "hidden";
   },
 
@@ -153,6 +158,9 @@ hangman.randomWord();
 hangman.debug();
 
 document.onkeyup = hangman.checkGuess;
+
+// Stop spacebar from pressing play again button
+
 
 
 

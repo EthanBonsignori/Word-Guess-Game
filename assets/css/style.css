@@ -24,6 +24,7 @@ body {
   background: url(../images/map.jpg) no-repeat;
   background-position: center;
   border-radius: 25px;
+  border: 1px solid #183945;
 }
 
 .title {
@@ -53,6 +54,17 @@ body {
   transform: rotate(-4deg);
 }
 
+.sub2 {
+  position: relative;
+  padding: 10px;
+  bottom: 14px;
+  display: inline-block;
+  background-color: #1FBDF6;
+  border-top: 2px solid #183945;
+  border-left: 2px solid #183945;
+  border-right: 2px solid #183945;
+}
+
 
 .stats {
   position: absolute;
@@ -75,6 +87,7 @@ body {
    1px -1px 0 #000,
    -1px 1px 0 #000,
     1px 1px 0 #000;
+  padding-top: 2rem;
 }
 
 .letters {
@@ -84,7 +97,7 @@ body {
 }
 
 #letter-list {
-  margin: 10px auto;
+  margin: 15px auto 10px 25px;
   padding: 0;
   align-items: center;
 }
@@ -107,6 +120,7 @@ body {
   border: solid 2px #116973;
   border-radius: 5px;
   box-shadow: inset -10px -5px 15px #183945;
+  cursor: pointer;
 }
 
 .usedLetter {
@@ -117,13 +131,16 @@ body {
 }
 
 #try-again {
+  display: block;
+  margin: 0 auto;
+  width: 40%;
   font-family: 'Major Mono Display', monospace;
-  display: inline;
   color: white;
   border: 15px solid #D82B03;
   border-radius: 40px;
   background: #D82B03;
 }
+
 
 .visible {
   visibility: visible;
@@ -139,26 +156,46 @@ body {
   transition: visibility 0s 1.5s, opacity 1.5s linear;
 }
 
+#reset {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 2rem;
+  color: #122c35;
+  background-color: #1FBDF6;
+  border-left: 2px solid #183945;
+  border-top: 2px solid #183945;
+  border-bottom: none;
+  border-right: none;
+  border-bottom-right-radius: 21px;
+  box-shadow: inset -10px -5px 35px #183945;
+}
+
 #flagpole {
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   left: 48.8%;
-  height: 320px;
-  width: 30px;
+  height: 210px;
+  width: 20px;
   background-image: linear-gradient(to right, #2f4353, #d2ccc4, #2f4353);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border-bottom: 1px solid rgb(99, 99, 99);
 }
 
 #flag {
   position: fixed;
-  bottom: 200px;
-  left: 50%;
-  height: 140px;
-  width: 220px;
+  bottom: 130px;
+  left: 49.5%;
+  height: 90px;
+  width: 140px;
   border: 1px solid black;
   background-image: url(../images/flags/us.png);
   background-size: cover;
+}
+
+button:focus {
+  outline: none;
 }
 
 /*-- Media Queries --*/
