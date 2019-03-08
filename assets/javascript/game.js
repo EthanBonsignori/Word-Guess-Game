@@ -92,21 +92,17 @@ const hangman = {
   // Get images for flags dynamically
   getFlag: function() {
   // Set the image src to the flag url
+
     function newImage() {
-      hangman.flagImage.style.backgroundImage = ("url", flagUrl(hangman.chosenWord))
-      console.log("FLAG COUNTRY: " +hangman.chosenWord)
+      hangman.flagImage.style.backgroundImage = 'url(' + flagUrl(hangman.chosenWord) +')'
     }
 
     // Function that returns url of flag
     function flagUrl (country) {
       country = country.split(' ').join('-')
-      return `https://www.countries-ofthe-world.com/flags-normal/flag-of-${upperCaseFirst(country)}.png`
+      return "https://www.countries-ofthe-world.com/flags-normal/flag-of-"+(country)+".png"
     }
 
-    // Helper function that uppercases only the first letter of a string
-    function upperCaseFirst (string) {
-      return string.charAt(0).toUpperCase() + string.slice(1)
-    }
     newImage();
   },
 
