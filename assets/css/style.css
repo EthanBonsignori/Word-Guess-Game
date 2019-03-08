@@ -183,13 +183,25 @@ body {
   border-top-right-radius: 10px;
 }
 
+#blankflag {
+  position: absolute;
+  display: inline-block;
+  bottom: 190px;
+  left: 6.3%;
+  height: 88px;
+  width: 155px;
+  border: 1px solid black;
+  background: url(../images/blank-flag.png);
+  background-size: cover;
+}
+
 #flag {
   position: absolute;
   display: inline-block;
   bottom: 190px;
   left: 6.3%;
-  height: 90px;
-  width: 140px;
+  height: 88px;
+  width: 155px;
   border: 1px solid black;
   background-size: cover;
 }

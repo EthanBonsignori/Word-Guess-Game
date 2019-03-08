@@ -5,7 +5,10 @@ const hangman = {
   guesses: 8,  // User's guesses remaining
   
   // List of words to choose from for the user to guess
-  countries: ["United States of America", "Japan", "Canada", "New Zealand", "Russia", "Sweden"],
+  countries: ["United States of America", "Japan", "Canada", "New Zealand", "Russia", "Sweden", "Zimbabwe", "Italy", "South Africa",
+              "Pakistan", "China", "Saudi Arabia", "Singapore", "India", "Turkey", "Vietnam", "Israel", "Belgium", "Norway", "France",
+              "Spain", "Greece", "Ireland", "Germany", "United Kingdom", "Switzerland", "Brazil", "Argentina", "Venezuala", "Mexico",
+              "Trinidad and Tobago", "Australia"],
 
   alphabet:  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
               "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
@@ -32,6 +35,7 @@ const hangman = {
     hangman.randomWord();            // Pick a new word
     hangman.createAlphabet();        // Resets the used letters display
     hangman.tryAgainText.className = "hidden";
+    hangman.debug();
   },
 
   // Allows users to click alert to hide it instead of waiting for it to fade on next guess
@@ -60,14 +64,16 @@ const hangman = {
   update: function() {
     hangman.underscoreText.textContent = hangman.underscores.join('');
     hangman.guessesText.textContent = "You have " + hangman.guesses + " guesses";
-    hangman.wonText.textContent = "Won: " + hangman.wins;
-    hangman.lostText.textContent = "Lost: " + hangman.losses;
     if (hangman.underscores.indexOf('_') === -1) {
       hangman.guessesText.textContent = "You win!"
       hangman.wins++;
+      hangman.wonText.textContent = "Won: " + hangman.wins;
+      // Show flag
+      hangman.flagImage.style.opacity = 1;
     } else if (hangman.guesses === 0) {
       hangman.guessesText.textContent = "You lose, try again!"
       hangman.losses++;
+      hangman.lostText.textContent = "Lost: " + hangman.losses;
     }
   },
 
@@ -91,18 +97,16 @@ const hangman = {
 
   // Get images for flags dynamically
   getFlag: function() {
-  // Set the image src to the flag url
-
+    // Set the image src to the flag url
     function newImage() {
+      hangman.flagImage.style.opacity = 0;
       hangman.flagImage.style.backgroundImage = 'url(' + flagUrl(hangman.chosenWord) +')'
     }
-
     // Function that returns url of flag
     function flagUrl (country) {
       country = country.split(' ').join('-')
       return "https://www.countries-ofthe-world.com/flags-normal/flag-of-"+(country)+".png"
     }
-
     newImage();
   },
 
