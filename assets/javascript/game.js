@@ -7,7 +7,7 @@ const hangman = {
   // List of words to choose from for the user to guess
   countries: ["United States of America", "Japan", "Canada", "New Zealand", "Russia", "Sweden", "Zimbabwe", "Italy", "South Africa",
               "Pakistan", "China", "Saudi Arabia", "Singapore", "India", "Turkey", "Vietnam", "Israel", "Belgium", "Norway", "France",
-              "Spain", "Greece", "Ireland", "Germany", "United Kingdom", "Switzerland", "Brazil", "Argentina", "Venezuala", "Mexico",
+              "Spain", "Greece", "Ireland", "Germany", "United Kingdom", "Switzerland", "Brazil", "Argentina", "Venezuela", "Mexico",
               "Trinidad and Tobago", "Australia"],
 
   alphabet:  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
