@@ -24,10 +24,11 @@ const hangman = {
   wonText: document.getElementById('won'),
   lostText: document.getElementById('lost'),
   tryAgainText: document.getElementById('try-again'),
-  flagImage: document.getElementById("flag"),
+  flagImage: document.getElementById('flag'),
 
   // Reset button
   reset: document.getElementById('reset').onclick = function() {
+    this.blur();  // Stops web page from focusing button so it can't be triggered with spacebar after being pressed
     hangman.usedLetters.length = 0;  // Reset the used letters array
     hangman.underscores.length=  0;  // Reset the chosen word
     hangman.guesses = 8;            // Reset guesses
@@ -64,12 +65,14 @@ const hangman = {
   update: function() {
     hangman.underscoreText.textContent = hangman.underscores.join('');
     hangman.guessesText.textContent = "You have " + hangman.guesses + " guesses";
+    // If word is completed
     if (hangman.underscores.indexOf('_') === -1) {
       hangman.guessesText.textContent = "You win!"
       hangman.wins++;
       hangman.wonText.textContent = "Won: " + hangman.wins;
       // Show flag
       hangman.flagImage.style.opacity = 1;
+      // If out of guesses
     } else if (hangman.guesses === 0) {
       hangman.guessesText.textContent = "You lose, try again!"
       hangman.losses++;
@@ -97,7 +100,7 @@ const hangman = {
 
   // Get images for flags dynamically
   getFlag: function() {
-    // Set the image src to the flag url
+    // Set the background-image of the flag element to the flag url
     function newImage() {
       hangman.flagImage.style.opacity = 0;
       hangman.flagImage.style.backgroundImage = 'url(' + flagUrl(hangman.chosenWord) +')'
@@ -152,20 +155,20 @@ const hangman = {
       hangman.debug(); // Display info to console once per playerGuess
   },
 
-  
+  // Checks if letter is in the alphabet and not some other key
   isLetter: function(letter) {
     return letter.length === 1 && letter.match(/[a-z]/i);
   },
 
-
+  // Changes class of letter display so it appears "used"
   onGuess: function() {
     for (const letter of hangman.usedLetters) {
       document.querySelector("#" + letter).className = "usedLetter";
     }
   },
 
-
-  debug: function() { // Outputs necessary variables to console for debugging
+  // Outputs necessary variables to console for debugging
+  debug: function() {
     console.log("========= Start Debug =========")
     console.log("Wins: " + this.wins);
     console.log("Losses: " + this.losses);
@@ -177,13 +180,14 @@ const hangman = {
   }
 };
 
+// Init game
 hangman.createAlphabet();
 hangman.randomWord();
 hangman.debug();
 
+// Listener
 document.onkeyup = hangman.checkGuess;
 
-// Stop spacebar from pressing play again button
 
 
 
