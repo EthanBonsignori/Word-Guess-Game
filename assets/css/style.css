@@ -39,7 +39,7 @@ body {
   top: -70px;
   font-family: 'Fondamento', cursive;
   font-size: 80px;
-  color: #1FBDF6;
+  color: #ABA435;
   margin: 0;
 
   text-shadow:
@@ -211,6 +211,50 @@ button:focus {
 }
 
 /*-- Media Queries --*/
+@media all and (max-width: 1199px) {
+  .title {
+    font-size: 5rem;
+  }
+
+  .subtitle {
+    font-size: 4rem;
+  }
+
+  .sub2 {
+    bottom: -30px;
+  }
+
+  #flagpole {
+    height: 180px;
+    width: 18px;
+  }
+
+  #flag, #blankflag {
+    height: 68px;
+    width: 125px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  .stats {
+    width: 150px;
+  }
+
+  #won, #lost {
+    font-size: 1.5rem;
+  }
+
+  #flagpole {
+    display: none;
+  }
+
+  #flag, #blankflag {
+    bottom: 0;
+    top: 0;
+    right: auto;
+    left: auto;
+  }
+
 @media all and (max-width: 768px) {
   .title {
     font-size: 75px;
@@ -218,6 +262,24 @@ button:focus {
   .subtitle {
     font-size: 60px;
     top: -50px;
+  }
+  .stats {
+    width: 100px;
+  }
+  #won, #lost {
+    font-size: 1rem;
+  }
+
+  .sub2 {
+    bottom: -59px;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  #reset {
+    font-size: 1rem;
   }
  }
 
@@ -228,6 +290,10 @@ button:focus {
   .subtitle {
     font-size: 40px;
     top: -30px;
+  }
+
+  .sub2 {
+    bottom: -113px;
   }
 }
 
