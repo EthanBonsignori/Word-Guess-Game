@@ -3,7 +3,7 @@
 
 html {
   border: 30px solid #A95800;
-  height: 100%;
+  min-height: 100%;
   box-shadow: inset 0 0 50px 5px #A95800;
 }
 
@@ -15,7 +15,7 @@ body {
 
 .container {
   height: 100%;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .map-border {
@@ -80,7 +80,7 @@ body {
 #underscores {
   font-family: 'Major Mono Display', monospace;
   color: #000;
-  font-size: 300%;
+  font-size: 3rem;
   font-weight: bold;
   text-shadow:
   -1px -1px 0 #000,  
@@ -224,6 +224,10 @@ button:focus {
     bottom: -30px;
   }
 
+  #underscores {
+    font-size: 2.5rem;  
+  }
+
   #flagpole {
     height: 180px;
     width: 18px;
@@ -244,6 +248,10 @@ button:focus {
     font-size: 1.5rem;
   }
 
+  #underscores {
+    font-size: 2rem;  
+  }
+
   #flagpole {
     display: none;
   }
@@ -259,13 +267,16 @@ button:focus {
   .title {
     font-size: 75px;
   }
+
   .subtitle {
     font-size: 60px;
     top: -50px;
   }
+
   .stats {
     width: 100px;
   }
+
   #won, #lost {
     font-size: 1rem;
   }
@@ -281,12 +292,17 @@ button:focus {
   #reset {
     font-size: 1rem;
   }
+  
+  #underscores {
+    font-size: 1.5rem;  
+  }
  }
 
 @media all and (max-width: 564px) {
   .title {
     font-size: 50px;
   }
+
   .subtitle {
     font-size: 40px;
     top: -30px;
