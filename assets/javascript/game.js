@@ -21,6 +21,7 @@ const hangman = {
   wonText: document.getElementById('won'),
   lostText: document.getElementById('lost'),
   tryAgainText: document.getElementById('try-again'),
+  flagImage: document.getElementById("flag"),
 
   // Reset button
   reset: document.getElementById('reset').onclick = function() {
@@ -74,7 +75,9 @@ const hangman = {
   // Picks a random word in the countries array and displays it to console
   randomWord: function() {  
     let randomNumber = Math.floor(Math.random() * this.countries.length);
-    this.chosenWord = this.countries[randomNumber].toLowerCase();
+    this.chosenWord = this.countries[randomNumber];
+    this.getFlag();
+    this.chosenWord = this.chosenWord.toLowerCase();
       // Adds one underscore per letter in the randomly selected word from the countries array
       for (let i = 0; i < this.chosenWord.length; i++) {
         if (this.chosenWord[i] === ' ') {
@@ -84,6 +87,27 @@ const hangman = {
         }
       }
       this.update();
+  },
+
+  // Get images for flags dynamically
+  getFlag: function() {
+  // Set the image src to the flag url
+    function newImage() {
+      hangman.flagImage.style.backgroundImage = ("url", flagUrl(hangman.chosenWord))
+      console.log("FLAG COUNTRY: " +hangman.chosenWord)
+    }
+
+    // Function that returns url of flag
+    function flagUrl (country) {
+      country = country.split(' ').join('-')
+      return `https://www.countries-ofthe-world.com/flags-normal/flag-of-${upperCaseFirst(country)}.png`
+    }
+
+    // Helper function that uppercases only the first letter of a string
+    function upperCaseFirst (string) {
+      return string.charAt(0).toUpperCase() + string.slice(1)
+    }
+    newImage();
   },
 
 
@@ -160,6 +184,8 @@ hangman.debug();
 document.onkeyup = hangman.checkGuess;
 
 // Stop spacebar from pressing play again button
+
+
 
 
 

@@ -93,7 +93,7 @@ body {
 .letters {
   font-family: 'Major Mono Display', monospace;
   color: #183945;
-  border: dashed 3px #183945;
+  border: dashed 3px #000;
 }
 
 #letter-list {
@@ -191,7 +191,6 @@ body {
   height: 90px;
   width: 140px;
   border: 1px solid black;
-  background-image: url(../images/flags/us.png);
   background-size: cover;
 }
 
