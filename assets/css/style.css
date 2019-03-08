@@ -79,7 +79,7 @@ body {
 
 #underscores {
   font-family: 'Major Mono Display', monospace;
-  color: #1FBDF6;
+  color: #000;
   font-size: 300%;
   font-weight: bold;
   text-shadow:
@@ -172,21 +172,22 @@ body {
 }
 
 #flagpole {
-  position: fixed;
-  bottom: 20px;
-  left: 48.8%;
+  position: absolute;
+  display: inline-block;
+  bottom: 84px;
+  left: 5%;
   height: 210px;
   width: 20px;
   background-image: linear-gradient(to right, #2f4353, #d2ccc4, #2f4353);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-bottom: 1px solid rgb(99, 99, 99);
 }
 
 #flag {
-  position: fixed;
-  bottom: 130px;
-  left: 49.5%;
+  position: absolute;
+  display: inline-block;
+  bottom: 190px;
+  left: 6.3%;
   height: 90px;
   width: 140px;
   border: 1px solid black;
