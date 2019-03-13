@@ -65,7 +65,11 @@ const hangman = {
   // Updates text on screen with necessary variables and strings
   update: function() {
     hangman.underscoreText.textContent = hangman.underscores.join('');
-    hangman.guessesText.textContent = "You have " + hangman.guesses + " guesses";
+    if (hangman.guesses === 1) {
+      hangman.guessesText.textContent = "You have " + hangman.guesses + " guess";
+    } else {
+      hangman.guessesText.textContent = "You have " + hangman.guesses + " guesses";
+    }
     // If word is completed
     if (hangman.underscores.indexOf('_') === -1) {
       hangman.guessesText.textContent = "You win!"
