@@ -25,6 +25,7 @@ const hangman = {
   lostText: document.getElementById('lost'),
   tryAgainText: document.getElementById('try-again'),
   flagImage: document.getElementById('flag'),
+  blankFlagImage: document.getElementById('blankflag'),
   instructions: document.getElementById('instructions'),
 
   // Reset button
@@ -77,6 +78,7 @@ const hangman = {
       hangman.wonText.textContent = hangman.wins;
       // Show flag
       hangman.flagImage.style.opacity = 1;
+      hangman.blankFlagImage.style.opacity = 0;
       // If out of guesses
     } else if (hangman.guesses === 0) {
       hangman.guessesText.textContent = "You lose, try again!"
@@ -107,13 +109,17 @@ const hangman = {
   getFlag: function() {
     // Set the background-image of the flag element to the flag url
     function newImage() {
+      hangman.blankFlagImage.style.opacity = 1;
       hangman.flagImage.style.opacity = 0;
-      hangman.flagImage.style.backgroundImage = 'url(' + flagUrl(hangman.chosenWord) +')'
+      hangman.flagImage.style.backgroundImage = 'url(assets/images/flags/' + flagUrl(hangman.chosenWord) + '.png)';
     }
-    // Function that returns url of flag
+    // Function that replaces spaces with dashes
     function flagUrl (country) {
       country = country.split(' ').join('-')
-      return "https://www.countries-ofthe-world.com/flags-normal/flag-of-"+(country)+".png"
+      console.log('country ' + country);
+      return country;
+      // No longer needed because fetching the flags dynamically didn't work on github pages
+      // return "https://www.countries-ofthe-world.com/flags-normal/flag-of-"+(country)+".png"
     }
     newImage();
   },
